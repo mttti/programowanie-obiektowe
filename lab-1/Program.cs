@@ -53,6 +53,9 @@ namespace lab1
                 Console.WriteLine(item.ToString());
             }
 
+
+            Tank czolg = new Tank(-5, 10);
+            Console.WriteLine(czolg.Level);
         }
     }
 
@@ -208,6 +211,77 @@ namespace lab1
                 return _value.CompareTo(other._value);
             else
                 return curResult;
+        }
+    }
+    public class Tank
+    {
+        public readonly int Capacity;
+        private int _level;
+
+       
+        public int Level
+        {
+            get
+            {
+                return _level;
+            }
+            private set
+            {
+                if (value < 0 || value > Capacity)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                _level = value;
+            }
+        }
+
+        public bool refuel(int amount)
+        {
+            if (amount < 0)
+            {
+                return false;
+            }
+            if (_level + amount > Capacity)
+            {
+                return false;
+            }
+            _level += amount;
+            return true;
+        }
+
+        public bool consume(int amount)
+        {
+            if (amount < 0)
+                return false;
+            else if (amount > _level)
+                return false;
+            else
+            {
+                _level = _level - amount;
+                return true;
+            }
+        }
+
+        public bool refuel(Tank sourceTank, int amount)
+        {
+            if (amount < 0)
+                return false;
+            else if (amount > sourceTank._level)
+                return false;
+            else if (amount + _level > Capacity)
+                return false;
+            else
+            {
+                sourceTank._level -= amount;
+                _level += amount;
+                return true;
+            }
+        }
+
+         public Tank(int _level, int capacity)
+        {
+            Capacity = capacity;
+            Level = _level;
         }
     }
 }

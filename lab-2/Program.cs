@@ -10,5 +10,5 @@ namespace lab_2
         }
     }
 
-    class
+    class 
 }

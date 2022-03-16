@@ -39,6 +39,13 @@ namespace lab_2
             flyingObject[1] = new Hydroplane();
             ISwim[] swimmingObject = new ISwim[2];
             swimmingObject[0] = (ISwim)flyingObject[0];
+
+            IAggregate aggregate;
+            IIterator iterator = aggregate.CreateIterator();
+            while (iterator.HasNext())
+            {
+                Console.WriteLine(iterator.GetNext());
+            }
         }
     }
 
@@ -107,7 +114,7 @@ namespace lab_2
         }
     }
 
-    class Hydroplane: ISwim, IFly
+    class Hydroplane : ISwim, IFly
     {
         public void Fly()
         {
@@ -180,6 +187,18 @@ namespace lab_2
     class StudentLectureGroup : Student
     {
         public string Name { get; set; }
+    }
+
+    interface IAggregate
+    {
+        IIterator CreateIterator();
+
+    }
+    interface IIterator
+    {
+        bool HasNext();
+
+        int GetNext();
     }
 }
 

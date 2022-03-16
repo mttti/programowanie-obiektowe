@@ -32,6 +32,13 @@ namespace lab_2
 
             Console.WriteLine(sumVat);
             Console.WriteLine(sumPrice);
+
+            IFly[] flyingObject = new IFly[2];
+
+            flyingObject[0] = new Duck();
+            flyingObject[1] = new Hydroplane();
+            ISwim[] swimmingObject = new ISwim[2];
+            swimmingObject[0] = (ISwim)flyingObject[0];
         }
     }
 
@@ -77,5 +84,102 @@ namespace lab_2
         public abstract decimal GetVatPrice();
     }
 
+    interface IFly
+    {
+        void Fly();
+    }
+
+    interface ISwim
+    {
+        void Swimm();
+    }
+
+    class Duck : ISwim, IFly
+    {
+        public void Fly()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Swimm()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    class Hydroplane: ISwim, IFly
+    {
+        public void Fly()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Swimm()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    class Person
+    {
+        private string firstName;
+        private string lastName;
+        private DateTime birthDate;
+
+        public string FirstName
+        {
+            get
+            {
+                return firstName;
+            }
+            set
+            {
+                FirstName = value;
+            }
+        }
+        public string LastName
+        {
+            get
+            {
+                return lastName;
+            }
+            set
+            {
+                LastName = value;
+            }
+        }
+        public DateTime BirthDate
+        {
+            get
+            {
+                return birthDate;
+            }
+            set
+            {
+                BirthDate = value;
+            }
+        }
+
+        /*public Person(string firstName, string lastName, DateTime birthDate)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            BirthDate = birthDate;
+        }*/
+    }
+
+    class Lecturer : Person
+    {
+        public string AcademicDegree { get; set; }
+    }
+
+    class Student : Person
+    {
+        public int StudentID { get; set; }
+    }
+    class StudentLectureGroup : Student
+    {
+        public string Name { get; set; }
+    }
 }
 

@@ -83,10 +83,6 @@ namespace lab1
                 Student.Of("Marian", "Lewandowski", 5.00M),
                 Student.Of("Eustachy", "Lewandowski", 4.00M),
                 Student.Of("Eustachy", "Lewandowski", 6.00M),
-                /*Student.Of("Adam", "Małysz", 2.00M),
-                Student.Of("Robert", "Żmijewski", 3.50M),
-                Student.Of("Martyna", "Baron", 6.00M),
-                Student.Of("Amelia", "Józefczyk", 2.50M)*/
             };
 
 

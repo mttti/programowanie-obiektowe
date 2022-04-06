@@ -7,29 +7,9 @@ class App
         //UWAGA!!! Nie usuwaj poniższego wiersza!!!
         //Console.WriteLine("Otrzymałeś punktów: " + (Test.Exercises_1() + Test.Excersise_2() + Test.Excersise_3()));
 
-        int[] arr = { 2, 3, 4, 6 };
-        var tuple = GetTuple2<int>(arr);
-        // Console.WriteLine(tuple.firstAndLast);
-        //Console.WriteLine(tuple.isSame);
-        Console.WriteLine(tuple.Item1);
     }
 
-    public static ValueTuple<T[], bool> GetTuple2<T>(T[] arr)
-    {
-        int lastIndex = arr.Length - 1;
 
-        T[] tab = new T[2];
-        tab[0] = arr[0];
-        tab[1] = arr[lastIndex];
-        bool check = false;
-        if (tab[0].Equals(tab[1]))
-            check = true;
-
-        (T[] firstAndLast, bool isSame) tuple;
-        tuple = (firstAndLast: tab, isSame: check);
-
-        return tuple;
-    }
 }
 
 //Ćwiczenie 1
@@ -110,8 +90,6 @@ public class Exercise2
     {
         int lastIndex = arr.Length - 1;
 
-
-
         T[] tab = new T[2];
         tab[0] = arr[0];
         tab[1] = arr[lastIndex];
@@ -119,7 +97,7 @@ public class Exercise2
         if (tab[0].Equals(tab[1]))
             check = true;
 
-        ( T[] firstAndLast, bool isSame) tuple;//= (tab,aa);
+        ( T[] firstAndLast, bool isSame) tuple;
         tuple = (firstAndLast: tab, isSame: check);
 
         return tuple;
